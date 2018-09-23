@@ -11,16 +11,8 @@ namespace MyShop.WebUI.Controllers
 {
     public class ProductManagerController : Controller
     {
-        /// <summary>
-        /// Initializes the ProductRepository class as context.
-        /// </summary>
-        ProductRepository context;
-
-        /// <summary>
-        /// Initializes the ProductCategoryRepository class 
-        /// as productCategories.
-        /// </summary>
-        ProductCategoryRepository productCategories;
+        InMemoryRepository<Product> context;
+        InMemoryRepository<ProductCategory> productCategories;
 
         /// <summary>
         /// Constructor:
@@ -28,8 +20,8 @@ namespace MyShop.WebUI.Controllers
         /// </summary>
         public ProductManagerController()
         {
-            context = new ProductRepository();
-            productCategories = new ProductCategoryRepository();
+            context = new InMemoryRepository<Product>();
+            productCategories = new InMemoryRepository<ProductCategory>();
         }
         
         // ******************** Retrieve ******************** //
