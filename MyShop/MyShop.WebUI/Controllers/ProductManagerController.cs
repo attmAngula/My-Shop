@@ -18,7 +18,7 @@ namespace MyShop.WebUI.Controllers
 
         /// <summary>
         /// Constructor:
-        /// Instanciates the ProductRepository object.
+        /// ...
         /// </summary>
         public ProductManagerController(IRepository<Product> productContext, IRepository<ProductCategory> productCategoryContext)
         {
