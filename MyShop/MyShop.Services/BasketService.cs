@@ -18,10 +18,10 @@ namespace MyShop.Services
         public const string BasketSessionName = "eCommerceBasket";
 
         // ctor
-        public BasketService(IRepository<Product> productContext, IRepository<Basket> basketContext)
+        public BasketService(IRepository<Product> ProductContext, IRepository<Basket> BasketContext)
         {
-            this.basketContext = basketContext;
-            this.productContext = productContext;
+            this.basketContext = BasketContext;
+            this.productContext = ProductContext;
         }
 
         /// <summary>
@@ -50,9 +50,12 @@ namespace MyShop.Services
                 {
                     basket = basketContext.Find(basketId);
                 }
-                if (createIfNull)
+                else 
                 {
-                    basket = CreateNewBasket(httpContext);
+                    if (createIfNull)
+                    {
+                        basket = CreateNewBasket(httpContext);
+                    }
                 }
             }
             else
@@ -205,7 +208,8 @@ namespace MyShop.Services
                 model.BasketTotal = basketTotal ?? decimal.Zero;
 
                 return model;
-            }else
+            }
+            else
             {
                 return model;
             }
